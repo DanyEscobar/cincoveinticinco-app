@@ -25,7 +25,6 @@ export class UserService {
 
   public readonly departments: Option[] = [
     { value: 'Cundinamarca', label: 'Cundinamarca' },
-    { value: 'Antioquia', label: 'Antioquia' },
     { value: 'Valle', label: 'Valle' },
     { value: 'Caldas', label: 'Caldas' },
   ];
@@ -36,11 +35,6 @@ export class UserService {
       { value: 'Bogota', label: 'Bogotá' },
       { value: 'Soacha', label: 'Soacha' },
       { value: 'Chia', label: 'Chía' }
-    ],
-    'Antioquia': [
-      { value: 'Medellin', label: 'Medellín' },
-      { value: 'Bello', label: 'Bello' },
-      { value: 'Itagui', label: 'Itagüí' }
     ],
     'Valle': [
       { value: 'Cali', label: 'Cali' },

@@ -1,6 +1,8 @@
 # CincoveinticincoApp
 
-Aplicación de gestión de usuarios desarrollada con **Angular 21** y **Bootstrap 5**. Permite registrar nuevos usuarios desde una Landing Page pública e incluye un Dashboard privado para consultar, buscar, editar y eliminar registros.
+🌐 **Demo en vivo**: [cincoveinticinco-app.netlify.app](https://cincoveinticinco-app.netlify.app)
+
+Aplicación de gestión de usuarios desarrollada con **Angular 21** y **Bootstrap 5**. Permite registrar nuevos usuarios desde una Landing Page pública e incluye un Dashboard privado para consultar, buscar y editar registros.
 
 ---
 
