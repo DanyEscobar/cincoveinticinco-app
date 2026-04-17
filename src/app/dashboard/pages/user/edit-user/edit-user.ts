@@ -159,7 +159,10 @@ export class EditUser implements OnInit, OnDestroy {
           this.formUserConfig.get('house')?.setValue(user.house_apartment);
           this.formUserConfig.get('comments')?.setValue(user.comment);
           this.formUserConfig.get('gender')?.setValue(user.sex);
-          this.formUserConfig.get('birthdate')?.setValue(user.date_birthday);
+          const birthdateFormatted = user.date_birthday
+            ? new Date(user.date_birthday).toISOString().split('T')[0]
+            : null;
+          this.formUserConfig.get('birthdate')?.setValue(birthdateFormatted);
           this.formUserConfig.get('country')?.setValue(user.country);
           this.formUserConfig.get('department')?.setValue(user.Deparment);
           this.formUserConfig.get('city')?.setValue(user.City);
