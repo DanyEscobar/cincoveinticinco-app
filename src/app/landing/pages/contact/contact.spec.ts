@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { Contact } from './contact';
 
@@ -9,6 +12,11 @@ describe('Contact', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Contact],
+      providers: [
+        provideHttpClient(),
+        provideRouter([]),
+        provideAnimationsAsync(),
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Contact);

@@ -1,4 +1,5 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { UserService } from '@shared/services/user.service';
 import { MatTableModule } from '@angular/material/table';
 import { DatePipe, NgClass } from '@angular/common';
@@ -21,6 +22,7 @@ export class UserIndex implements OnInit {
 
   private readonly userService = inject(UserService);
   private readonly router = inject(Router);
+  private readonly destroyRef = inject(DestroyRef);
 
   public headers = signal<{field: keyof User; header: string; type?: string}[]>([]);
   public users = signal<User[]>([]);
@@ -37,9 +39,13 @@ export class UserIndex implements OnInit {
   }
 
   getUsers(){
-    this.userService.getUsers().subscribe();
+    this.userService.getUsers().pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe();
     
-    this.userService.users$.subscribe({
+    this.userService.users$.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe({
       next: (users) => {
         this.users.set(users);
         this.applyFilterAndSort();
