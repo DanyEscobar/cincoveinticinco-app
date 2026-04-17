@@ -1,0 +1,19 @@
+<div class="validation-errors mt-1">
+  @for (item of messages(); track item) {
+    @if (
+      control()?.hasError(item.error) && (control()?.dirty || control()?.touched)
+      ) {
+      <div
+        class="error-message text-danger d-flex align-items-center"
+        >
+        @if (showIcon()) {
+          <i
+            class="error-message__icon me-1 text-danger fas fa-exclamation-circle"
+          ></i>
+        }
+        <span>{{ getParam(item.message) }}</span>
+      </div>
+    }
+  }
+</div>
+

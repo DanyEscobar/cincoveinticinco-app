@@ -1,0 +1,195 @@
+{
+  "title": "Contact",
+  "button": {
+    "message": "Enviar",
+    "icon": "fas fa-arrow-right",
+    "position": "right"
+  },
+  "fields": [
+    {
+      "type": "select",
+      "name": "gender",
+      "label": "Sexo *",
+      "class": "col-12 col-md-6",
+      "options": [],
+      "validations": { 
+        "required": true 
+      },
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        }
+      ]
+    },
+    {
+      "type": "date",
+      "name": "birthdate",
+      "label": "Fecha de nacimiento *",
+      "class": "col-12 col-md-6",
+      "validations": { 
+        "required": true,
+        "validateAge": true
+      },
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        },
+        {
+          "error": "underAge",
+          "message": "Debes ser mayor de 18 años."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "firstname",
+      "label": "Nombre *",
+      "class": "col-12 col-md-6",
+      "validations": { 
+        "required": true,
+        "minlength": 3
+      },
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        },
+        {
+          "error": "minlength",
+          "message": "El campo debe tener al menos 3 caracteres."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "lastname",
+      "label": "Apellido *",
+      "class": "col-12 col-md-6",
+      "validations": { 
+        "required": true,
+        "minlength": 3
+      },
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        },
+        {
+          "error": "minlength",
+          "message": "El campo debe tener al menos 3 caracteres."
+        }
+      ]
+    },
+    {
+      "type": "email",
+      "name": "email",
+      "label": "Email *",
+      "class": "col-12",
+      "validations": { 
+        "required": true, 
+        "email": true 
+      },
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        },
+        {
+          "error": "email",
+          "message": "Email inválido."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "address",
+      "label": "Dirección *",
+      "class": "col-12",
+      "validations": { 
+        "required": true,
+        "minlength": 3
+      },
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        },
+        {
+          "error": "minlength",
+          "message": "El campo debe tener al menos 3 caracteres."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "house",
+      "label": "Casa / apartamento",
+      "class": "col-12 col-md-6"
+    },
+    {
+      "type": "select",
+      "name": "country",
+      "label": "Pais *",
+      "class": "col-12 col-md-6",
+      "options": [],
+      "validations": { 
+        "required": true 
+      },
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "name": "department",
+      "label": "Departamento *",
+      "class": "col-12 col-md-6",
+      "options": [],
+      "hidden": true,
+      "disabled": true,
+      "validations": {},
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "name": "city",
+      "label": "Ciudad *",
+      "class": "col-12 col-md-6",
+      "disabled": true,
+      "validations": { 
+        "required": true 
+      },
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        }
+      ]
+    },
+    {
+      "type": "textarea",
+      "name": "comments",
+      "label": "Comentarios *",
+      "class": "col-12",
+      "validations": { 
+        "required": true 
+      },
+      "errors": [
+        {
+          "error": "required",
+          "message": "Campo requerido."
+        }
+      ]
+    }
+  ]
+}

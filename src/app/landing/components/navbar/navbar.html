@@ -1,0 +1,47 @@
+<nav class="navbar navbar-light bg-light shadow-sm px-4 position-relative">
+  <div class="container-fluid px-0 d-flex justify-content-between align-items-center">
+    
+    <!-- Desktop Menu -->
+    <div class="d-none d-md-flex align-items-center w-100 justify-content-between">
+      <a 
+        class="nav-link fw-bold nav-link-custom me-3"
+        routerLink="/contact"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+        <i class="bi bi-person-lines-fill me-2"></i>Contacto
+      </a>
+      <a class="nav-link fw-bold nav-link-custom border-0 shadow-sm rounded-pill px-3 py-2 bg-white" routerLink="/dashboard/users">
+        Ir al Dashboard
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button class="navbar-toggler py-2 d-md-none border-0 shadow-none" type="button" (click)="toggleMenu()">
+      <i class="bi bi-list fs-1 text-dark"></i>
+    </button>
+
+    <!-- Floating Mobile Overlay -->
+    <div class="navbar-mobile-overlay d-md-none" [class.show]="isMenuOpen()">
+      <div class="d-flex flex-column gap-3">
+        <a 
+          class="nav-link fw-bold nav-link-custom"
+          routerLink="/contact"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{exact: true}"
+          (click)="closeMenu()"
+        >
+          <i class="bi bi-person-lines-fill me-2"></i>Contacto
+        </a>
+        <a 
+          class="nav-link fw-bold nav-link-custom" 
+          routerLink="/dashboard/users"
+          (click)="closeMenu()"
+        >
+          <i class="bi bi-speedometer2 me-2"></i>Ir al Dashboard
+        </a>
+      </div>
+    </div>
+
+  </div>
+</nav>

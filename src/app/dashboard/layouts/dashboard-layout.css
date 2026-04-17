@@ -1,0 +1,45 @@
+/* Dashboard Layout Styles */
+
+.sidebar-container {
+  width: 280px;
+  height: 100vh;
+  transition: all 0.3s ease-in-out;
+  z-index: 1050;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .sidebar-container {
+    position: fixed;
+    left: -280px;
+  }
+
+  .sidebar-container.open {
+    left: 0;
+  }
+
+  .sidebar-overlay.show {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-container {
+    position: relative;
+    left: 0;
+  }
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styling reset with Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  --primary-color: #3dc28f;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.success-snackbar,
+.success-snackbar .mdc-snackbar__surface {
+  --mdc-snackbar-container-color: #3dc28f !important;
+  background-color: #3dc28f !important;
+  color: white !important;
+}
+
+.success-snackbar .mdc-snackbar__label,
+.success-snackbar .mat-mdc-button {
+  color: white !important;
+}
+
+.error-snackbar,
+.error-snackbar .mdc-snackbar__surface {
+  --mdc-snackbar-container-color: #f44336 !important;
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+.error-snackbar .mdc-snackbar__label,
+.error-snackbar .mat-mdc-button {
+  color: white !important;
+}
+
+.warning-snackbar,
+.warning-snackbar .mdc-snackbar__surface {
+  --mdc-snackbar-container-color: #ff9800 !important;
+  background-color: #ff9800 !important;
+  color: white !important;
+}
+
+.warning-snackbar .mdc-snackbar__label,
+.warning-snackbar .mat-mdc-button {
+  color: white !important;
+}
+
+

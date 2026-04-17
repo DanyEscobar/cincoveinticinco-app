@@ -1,0 +1,22 @@
+<div class="input-group">
+  <input
+    name="search"
+    type="text"
+    [value]="initialValue()"
+    [placeholder]="placeholder()"
+    (keyup)="onKeyPress(txtInput.value)"
+    [disabled]="disabled()"
+    (focus)="false"
+    class="form-control small"
+    #txtInput
+  >
+  <!-- <div class="input-group-append">
+    <button
+      class="btn btn-primary"
+      type="button"
+      (click)="onKeyPress(txtInput.value)"
+    >
+      <i class="fas fa-search fa-sm"></i>
+    </button>
+  </div> -->
+</div>

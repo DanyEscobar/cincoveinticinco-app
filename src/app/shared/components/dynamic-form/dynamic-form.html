@@ -1,0 +1,86 @@
+@if (form) {
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3">
+    @for (field of config().fields; track field.name) {
+      @if (!field.hidden) {
+        <div
+          class="personalized-input-container"
+          [class]="field.class || 'col-12'"
+          [id]="field.name + '-form'"
+        >
+          @if (field.type === 'title') {
+            <h5 class="fw-bold mt-2" style="color: #3dc28f;">{{ field.label }}</h5>
+          } @else {
+            <div class="form-group">
+              @switch (field.type) {
+                @case ('text') {
+                  <input
+                    class="form-control form-control-sm"
+                    [id]="field.name"
+                    [formControlName]="field.name"
+                    [placeholder]="field.label"
+                    type="text"
+                    appTrim
+                  />
+                }
+                @case ('email') {
+                  <input
+                    class="form-control form-control-sm"
+                    [id]="field.name"
+                    [formControlName]="field.name"
+                    [placeholder]="field.label"
+                    type="email"
+                  />
+                }
+                @case ('date') {
+                  <input
+                    class="form-control form-control-sm"
+                    [id]="field.name"
+                    [formControlName]="field.name"
+                    placeholder="Fecha de nacimiento *"
+                    type="date"
+                  />
+                }
+                @case ('select') {
+                  <select
+                    class="form-select form-select-sm"
+                    [id]="field.name"
+                    [formControlName]="field.name"
+                    (change)="changeSelect($event, field.name)"
+                  >
+                    <option selected disabled [value]="null">{{ field.label }}</option>
+                    @for (option of field.options; track option.value) {
+                      <option [value]="option.value">{{ option.label }}</option>
+                    }
+                  </select>
+                }
+                @case ('textarea') {
+                  <textarea
+                    class="form-control form-control-sm"
+                    [id]="field.name"
+                    [formControlName]="field.name"
+                    [placeholder]="field.label"
+                    rows="3"
+                  ></textarea>
+                }
+              }
+              <app-error-message
+                [showIcon]="false"
+                [messages]="field.errors!"
+                [control]="form.get(field.name)!"
+              ></app-error-message>
+            </div>
+          }
+        </div>
+      }
+    }
+
+    <div class="col-12 text-end mt-4">
+      <button type="submit" class="btn text-white px-5 py-2 fw-medium" style="background-color: #3dc28f; border-radius: 4px;">
+        {{ actionType() || config().button.message }}
+        @if (config().button.icon) {
+          <i class="{{ config().button.icon }} ms-2"></i>
+        }
+      </button>
+    </div>
+  </form>
+}

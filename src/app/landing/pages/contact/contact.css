@@ -1,0 +1,20 @@
+.contact-wrapper {
+  background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.contact-overlay {
+  background-color: rgba(0, 0, 0, 0.65); /* Dark semi-transparent overlay to make form pop */
+}
+
+
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+
+.text-shadow-lg {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}

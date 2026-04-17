@@ -1,0 +1,11 @@
+.validation-errors .error-message:not(:first-child) {
+  display: none;
+}
+
+.validation-errors .error-message {
+  font-size: 12px;
+}
+
+.validation-errors .error-message__icon {
+  width: 16px;
+}

@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  --theme-color: #3dc28f;
+}
+
+.text-theme {
+  color: var(--theme-color);
+}
+
+.bg-theme {
+  background-color: var(--theme-color);
+  transition: background-color 0.3s ease;
+}
+
+.bg-theme:hover {
+  background-color: #2ea35f;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.info-item .bi {
+  margin-top: 2px; /* Slight alignment tweak */
+}

@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand navbar-light bg-light shadow-sm px-4">
+  <div class="navbar-nav w-100 justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <!-- Dashboard Sidebar Toggle (Mobile Only) -->
+      <button class="btn btn-link hamburger-btn p-0 me-3" (click)="toggleSidebar()">
+        <i class="bi bi-list fs-3 text-dark"></i>
+      </button>
+      <a class="nav-link fw-bold nav-link-custom ps-0" routerLink="/dashboard/users" routerLinkActive="active-link">
+        <i class="bi bi-speedometer2 me-2"></i>Dashboard
+      </a>
+    </div>
+    
+    <!-- Back to Landing (Desktop Only) -->
+    <div class="d-flex align-items-center d-none d-md-flex">
+      <a class="nav-link fw-bold nav-link-custom" routerLink="/contact">
+        <i class="bi bi-house me-2"></i>Ir al Landing
+      </a>
+    </div>
+  </div>
+</nav>

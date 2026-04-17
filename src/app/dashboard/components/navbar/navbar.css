@@ -1,0 +1,26 @@
+.nav-link-custom {
+  color: #212529;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+
+.nav-link-custom:hover {
+  color: var(--primary-color) !important;
+}
+
+.active-link {
+  color: var(--primary-color) !important;
+  border-bottom-color: var(--primary-color) !important;
+}
+
+.hamburger-btn {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .hamburger-btn {
+    display: block;
+  }
+}

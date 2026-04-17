@@ -1,0 +1,109 @@
+<div class="card shadow-sm border-0">
+  <div class="card-header bg-white border-bottom-0 pt-4 pb-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <h3 class="text-black mb-0">Usuarios Registrados</h3>
+    <app-search-box
+      (debounce)="onSearch($event)"
+      placeholder="Buscar..."
+      [initialValue]="searchTerm()"
+      [disabled]="false"
+    />
+  </div>
+
+  <div class="card-body pt-2 pb-4 px-3">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            @for (header of headers(); track header.field) {
+              <th [id]="header.field">
+                <div class="d-flex align-items-center">
+                  <button
+                    class="sortable bg-transparent border-0 p-0 fw-bold pe-2" 
+                    style="cursor: pointer;"
+                    (click)="sortBy(header.field)"
+                    (keypress)="sortBy(header.field)"
+                  >
+                    {{ header.header }}
+                  </button>
+                  @if (sortColumn() === header.field) {
+                    <i
+                      class="bi text-primary"
+                      style="cursor: pointer;"
+                      (click)="sortBy(header.field)"
+                      (keypress)="sortBy(header.field)"
+                      [ngClass]="sortDirection() === 'asc' ? 'bi-arrow-up' : 'bi-arrow-down'"
+                    ></i>
+                  } @else {
+                    <i 
+                      class="bi bi-arrow-down-up small text-muted opacity-50"
+                      style="cursor: pointer;"
+                      (click)="sortBy(header.field)"
+                      (keypress)="sortBy(header.field)"
+                    ></i>
+                  }
+                </div>
+              </th>
+            }
+            <th scope="col" class="text-center" id="actions">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of paginatedUsers; track user.id) {
+            <tr>
+              @for (header of headers(); track header.field) {
+                <td>
+                  @if (header.type === 'fecha') {
+                    {{ user[header.field] ? (user[header.field] | date : 'dd/MM/yyyy') : '—' }}
+                  } @else {
+                    {{ user[header.field] }}
+                  }
+                </td>
+              }
+              <td class="text-center">
+                <div class="d-flex gap-4 justify-content-center">
+                  <button
+                    class="text-primary cursor-pointer text-decoration-none border-0 bg-transparent p-0"
+                    (click)="editOption(user)"
+                    (keydown.enter)="editOption(user)"
+                  >
+                    Editar
+                  </button>
+                </div>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td [attr.colspan]="headers().length + 1" class="text-center py-4 text-muted">
+                No se encontraron resultados.
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  @if (filteredUsers().length > 0) {
+    <div class="card-footer bg-white py-3 d-flex justify-content-between align-items-center flex-wrap">
+      <span class="text-muted small">
+        Mostrando página {{ currentPage() }} de {{ totalPages }} ({{ filteredUsers().length }} resultados)
+      </span>
+      <nav>
+        <ul class="pagination pagination-sm mb-0">
+          <li class="page-item" [class.disabled]="currentPage() === 1">
+            <button class="page-link" (click)="prevPage()">
+              Anterior
+            </button>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage() === totalPages">
+            <button class="page-link" (click)="nextPage()">
+              Siguiente
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  }
+</div>
+
+

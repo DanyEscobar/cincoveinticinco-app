@@ -1,0 +1,24 @@
+<div class="d-flex vh-100 position-relative animate-fade-in">
+  
+  <!-- Mobile Sidebar Overlay -->
+  <div 
+    class="sidebar-overlay" 
+    [class.show]="isSidebarOpen()" 
+    (click)="closeSidebar()"
+    (keydown.escape)="closeSidebar()"
+    aria-label="Close sidebar"
+  ></div>
+
+  <!-- Responsive Sidebar Container -->
+  <div class="sidebar-container bg-dark shadow" [class.open]="isSidebarOpen()">
+    <app-sidebar />
+  </div>
+
+  <div class="flex-grow-1 d-flex flex-column overflow-hidden">
+    <app-dashboard-navbar (onToggleSidebar)="toggleSidebar()"></app-dashboard-navbar>
+    
+    <div class="p-4 overflow-y-auto flex-grow-1 bg-light">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

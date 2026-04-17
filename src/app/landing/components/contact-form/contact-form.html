@@ -1,0 +1,12 @@
+
+<form [formGroup]="form">
+  @if (contactConfig()) {
+    <app-dynamic-form
+      [formGroupName]="'contactConfig'"
+      [config]="contactConfig()!"
+      [actionType]="actionType()"
+      (changeSelectEvent)="changeSelect($event)"
+      (submitEvent)="handleEvent($event)"
+    ></app-dynamic-form>
+  }
+</form>
