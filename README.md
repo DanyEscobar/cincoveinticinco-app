@@ -141,12 +141,6 @@ El componente `DynamicForm` genera campos de formulario de forma dinámica a par
 
 ---
 
-```bash
-ng test
-```
-
----
-
 ## 📦 Tecnologías Utilizadas
 
 | Tecnología | Versión | Uso |
